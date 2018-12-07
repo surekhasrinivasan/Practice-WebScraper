@@ -1,0 +1,99 @@
+﻿@model IEnumerable<ScraperPractice.Models.Stock>
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@*<h2>Click on the Scrape button to view Stocks!</h2>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                <div class="form-group">
+                    <input type="submit" value="Scrape" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>*@
+
+<div>
+    <a asp-action="">Back to List</a>
+</div>
+
+<hr />
+
+<div>
+    <h2> View Scraped Data </h2>
+        <a asp-action="Create">New Scrape Stock Data</a>
+
+        <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Symbol)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Change)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PercentChange)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Currency)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MarketTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MarketCap)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Symbol)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Change)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PercentChange)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Currency)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MarketTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MarketCap)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@
+
