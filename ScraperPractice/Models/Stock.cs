@@ -13,7 +13,7 @@ namespace ScraperPractice.Models
         public decimal Change { get; set; }
         public decimal PercentChange { get; set; }
         public string Currency { get; set; }
-        public decimal MarketCap { get; set; }
+        public string MarketCap { get; set; }
         public DateTime MarketTime { get; set; }
     }
 }
